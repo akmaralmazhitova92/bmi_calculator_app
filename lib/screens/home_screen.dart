@@ -202,11 +202,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     onTap: (){
                       CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
 
+                      final bmi = calc.calculateBMI();
+
                       Navigator.push(
                         context, 
                         MaterialPageRoute(builder: (context) => ResultPage(
                           resultText: calc.getResult(), 
-                          bmi: calc.calculateBMI(), 
+                          bmi: bmi, 
                           advise: calc.getAdvise(), 
                           textColor: calc.getTextColor())));
                     },
